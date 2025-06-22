@@ -2,13 +2,13 @@
 
 This project is a demonstration of an offline-first web application built with React and a custom Service Worker. It showcases how a web app can provide a seamless user experience, even without a network connection, by intelligently caching application assets and API data.
 
-## 🚀 Live Demo
+## Demo
 
 **Live Preview:** https://react-offline-pwa.onrender.com
 
 ✅ **Fully functional offline support** - Test it by loading the site online, then turning off your WiFi and refreshing!
 
-This project was developed with AI-assistance, demonstrating a powerful human-AI collaboration for solving complex web development challenges.
+🚀 This project was developed by **[Devi R](https://www.linkedin.com/in/devi-r-06bb94a7)** with AI-assistance, demonstrating a powerful human-AI collaboration for solving complex web development challenges.
 
 ## Features
 
@@ -106,7 +106,6 @@ The offline functionality has been tested and works reliably. Here's how to test
 This PWA has been successfully deployed and tested on multiple platforms:
 
 - **Render:** https://react-offline-pwa.onrender.com
-- **Netlify:** Compatible (uses `_redirects` for SPA routing)
-- **Vercel:** Compatible (built-in SPA support)
+- **Netlify:** https://react-offline-pwa.netlify.app
 
 The build process automatically generates a production-ready service worker with the correct file paths for caching.
