@@ -1,3 +1,14 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
 .App {
   text-align: center;
 }
@@ -14,13 +25,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #004d40; /* A deep teal color */
+  padding: 20px;
   color: white;
 }
 
@@ -35,4 +41,62 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #004d40;
+}
+
+.author {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.status {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.source-indicator {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #e0e0e0;
+  color: #222;
+}
+.source-indicator.source-network {
+  background: #e3fcec;
+  color: #1b5e20;
+}
+.source-indicator.source-cache {
+  background: #fff3cd;
+  color: #856404;
 }
