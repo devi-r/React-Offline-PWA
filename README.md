@@ -8,6 +8,8 @@ This project is a demonstration of an offline-first web application built with R
 
 ✅ **Fully functional offline support** - Test it by loading the site online, then turning off your WiFi and refreshing!
 
+--
+
 🚀 This project was developed by **[Devi R](https://www.linkedin.com/in/devi-r-06bb94a7)** with AI-assistance, demonstrating a powerful human-AI collaboration for solving complex web development challenges.
 
 ## Features
