@@ -2,31 +2,21 @@
 // We will add service worker logic here in the next steps.
 console.log("Hello from the service worker!");
 
-const CACHE_NAME = "offline-article-viewer-v2"; // Bump version to trigger update
-const DATA_CACHE_NAME = "article-data-cache-v1";
+const CACHE_NAME = "pwa-cache-v2";
+const DATA_CACHE_NAME = "pwa-data-cache-v2";
 
-// This list of files will be cached when the service worker is installed.
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/manifest.json",
-  "/favicon.ico",
-  "/logo192.png",
-  // Note: The paths for JS and CSS bundles can change. In a real production app,
-  // a build tool would inject the correct paths here. We are using the default paths
-  // for a standard create-react-app build for this demo.
-  "/static/js/bundle.js",
-  "/static/css/main.chunk.css", // These paths might vary
-  "/static/js/main.chunk.js", // depending on the build
+// Add a placeholder that our build script will replace with the actual file manifest.
+const FILES_TO_CACHE = [
+  /* sw-injection-point */
 ];
 
 // The 'install' event is fired when the service worker is first installed.
 self.addEventListener("install", (event) => {
-  console.log("[Service Worker] Install event in progress.");
+  console.log("[SW] Install");
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[Service Worker] Caching App Shell");
-      return cache.addAll(urlsToCache);
+      console.log("[SW] Pre-caching app shell");
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 });
