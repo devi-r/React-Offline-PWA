@@ -43,6 +43,17 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   console.log("[SW] Fetching:", event.request.url);
 
+  // Handle navigation requests (when someone types the URL directly)
+  if (event.request.mode === "navigate") {
+    console.log("[SW] Navigation request detected");
+    event.respondWith(
+      caches.match("/index.html").then((response) => {
+        return response || fetch(event.request);
+      })
+    );
+    return;
+  }
+
   if (event.request.url.includes("dummyjson.com/posts")) {
     console.log("[SW] Handling API fetch");
     // Use a static key for the API cache so we can always serve the last fetched data.
@@ -116,9 +127,15 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // For all other requests, use Cache-First strategy
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      if (response) {
+        console.log("[SW] Serving from cache:", event.request.url);
+        return response;
+      }
+      console.log("[SW] Fetching from network:", event.request.url);
+      return fetch(event.request);
     })
   );
 });
